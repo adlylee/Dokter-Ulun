@@ -58,6 +58,7 @@ if(isset($_GET['no_rawat'])) {
                           <th>Dokter Tujuan</th>
                           <th>No. Antrian</th>
                           <th>Status</th>
+                          <th>No. SEP</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -83,8 +84,9 @@ if(isset($_GET['no_rawat'])) {
                               echo '</td>';
                               echo '<td>'.$row['1'].'</td>';
                               echo '<td>'.$row['2'].'</td>';
-                              echo '<td>'.$row['5'].'</td>';
-                              echo '</tr>';
+                              echo '<td>'.$row['5'].'</td>';?>
+                              <td><?php $a = fetch_array(query("SELECT no_sep FROM bridging_sep WHERE no_rawat = '{$row['4']}'"));echo $a['0'];?></td>
+                              <?php echo '</tr>';
                             $no++;
                           }
                         ?>
